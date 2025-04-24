@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Love You Nashra ❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #2b5876, #4e4376);
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+      height: 100vh;
+    }
+
+    /* Heart */
+    .heart-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      animation: fadeIn 3s ease-in-out;
+      position: relative;
+      z-index: 2;
+    }
+
+    .heart {
+      width: 230px;
+      height: 210px;
+      background-color: #ff4f81;
+      position: relative;
+      transform: rotate(-45deg);
+      box-shadow: 0 0 40px #ff4f81;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 230px;
+      height: 210px;
+      background-color: #ff4f81;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -105px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 115px;
+      top: 0;
+    }
+
+    .click-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff69b4;
+      animation: pulseText 1.5s infinite;
+      z-index: 3;
+    }
+
+    @keyframes pulseText {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.2); }
+    }
+
+    /* Message Box */
+    .message-box {
+      display: none;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: 0 0 60px #ff4f81;
+      font-size: 28px;
+      font-family: 'Great Vibes', cursive;
+      max-width: 800px;
+      line-height: 1.8;
+      animation: slideUp 1s ease forwards;
+      z-index: 11;
+    }
+
+    @keyframes slideUp {
+      from { transform: translate(-50%, 100px); opacity: 0; }
+      to { transform: translate(-50%, 0); opacity: 1; }
+    }
+
+    /* Countdown Timer */
+    .countdown {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 12;
+    }
+
+    /* Kiss Emojis and Animation */
+    .kisses {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 45px;
+      animation: kissFlow 6s ease;
+    }
+
+    .kiss-text {
+      position: absolute;
+      bottom: 10%;
+      font-size: 30px;
+      color: pink;
+      font-weight: bold;
+      z-index: 13;
+      animation: kissTextAnimation 5s ease;
+    }
+
+    @keyframes kissFlow {
+      0% { opacity: 1; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(50px); }
+      100% { opacity: 0; transform: translateY(100vh); }
+    }
+
+    @keyframes kissTextAnimation {
+      0% { transform: scale(1); opacity: 0; }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    /* Bye Bye Message with Slower Speed */
+    .bye-message {
+      display: none;
+      font-size: 36px;
+      color: #ff4f81;
+      position: absolute;
+      bottom: 20px;
+      left: 100%;
+      animation: slideLeft 10s ease forwards;
+      z-index: 13;
+    }
+
+    @keyframes slideLeft {
+      to { left: -100%; }
+    }
+
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="heart-container" id="heartContainer">
+    <div class="heart" onclick="showMessage()">
+      <div class="click-text">Click Here 💘</div>
+    </div>
+    <div class="message-box" id="msg">
+      Meri jaan Nashra 💖<br><br>
+      Har pal tumhari yaadon mein dooba rehta hoon...<br>
+      Door ho lekin dil ke andar itni gehrai se basa liya hai tumhe... 😢❤️<br><br>
+      Ek din aayega jab hum milenge... tum mere paas so rahi hogi, apne haathon se tumhara chehra chhoonga...<br>
+      Aur tum muskurake mujhe kehna... "Mujhe tumse mohabbat hai." 💞<br><br>
+      I LOVE YOU NASHRA 🥺❤️<br>
+      Main har din tumhe miss karta hoon 😭💋<br>
+      Tum meri zindagi ki subah ho, shaam ho, har lamha ho 💫💘🌙
+    </div>
+  </div>
+
+  <div class="kisses" id="kisses">
+    <div>😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘</div>
+    <div class="kiss-text">I KISS YOU UMMMMMMMMMMMMMMMMMMMMAH 💋💋💋💋💋</div>
+  </div>
+
+  <div class="bye-message" id="byeMessage">Bye Bye meri chural 😘👋</div>
+
+  <script>
+    function showMessage() {
+      const msgBox = document.getElementById("msg");
+      const kissLayer = document.getElementById("kisses");
+      const heartContainer = document.getElementById("heartContainer");
+      const byeMessage = document.getElementById("byeMessage");
+      const countdownElement = document.createElement("div");
+
+      heartContainer.querySelector(".heart").style.display = "none";
+      msgBox.style.display = "block";
+      countdownElement.classList.add("countdown");
+      countdownElement.innerText = "15";
+      document.body.appendChild(countdownElement);
+
+      let countdown = 15;
+      const countdownInterval = setInterval(() => {
+        countdown--;
+        countdownElement.innerText = countdown;
+        if (countdown <= 0) {
+          clearInterval(countdownInterval);
+          setTimeout(() => {
+            kissLayer.style.display = "flex";
+            setTimeout(() => {
+              kissLayer.style.display = "none";
+              byeMessage.style.display = "block";
+            }, 6000);
+          }, 1000);
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
